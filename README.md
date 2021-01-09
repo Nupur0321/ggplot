@@ -25,17 +25,17 @@ library(tidyverse)
 
 #ggplot generally prefers “long” data to “wide” data – can you figure out what the below code is doing?
 data3=gather(data2, canditate, n, -time)\
-View(data3)\
+View(data3)
 # all equivalent to data3
 data4=gather(data2, canditate, n, -1) \
 data5=gather(data2, canditate, n, c(a1,b1,c1)) \
 data6=gather(data2, canditate, n, 2:4)
 
 # plot with legend
-ggplot(data=data3)+geom_line(aes(x=time,y=n,colour=canditate))\
+ggplot(data=data3)+geom_line(aes(x=time,y=n,colour=canditate))
 
 # plot with legend and manually selected colours and a title
-ggplot(data=data3)+geom_line(aes(x=time, y=n, colour=canditate))+scale_color_manual(values=c("#FF0000", "#E69F00", "#56B4E9"))+ ggtitle("This is the title of my plot")\
+ggplot(data=data3)+geom_line(aes(x=time, y=n, colour=canditate))+scale_color_manual(values=c("#FF0000", "#E69F00", "#56B4E9"))+ ggtitle("This is the title of my plot")
 
 # check out the following plotly command
 p1 = ggplot(data=data3)+geom_line(aes(x=time, y=n, colour=canditate))+scale_color_manual(values=c("#FF0000", "#E69F00", "#56B4E9"))+ ggtitle("This is the title of my plot")\
