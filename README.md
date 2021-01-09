@@ -8,7 +8,7 @@ library(ggplot2)
 
 x=c(1,2,3,4,5,6)\
 a=c(2,4,3,5,6,7) \
-b=c(7,6,5,4,3,2)\ 
+b=c(7,6,5,4,3,2) \
 c=c(10,15,11,10,10,10)\
 data2=data.frame(time=x, a1=a, b1=b, c1=c)\
 View(data2)
