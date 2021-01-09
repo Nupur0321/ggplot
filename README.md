@@ -38,7 +38,7 @@ ggplot(data=data3)+geom_line(aes(x=time,y=n,colour=canditate))
 ggplot(data=data3)+geom_line(aes(x=time, y=n, colour=canditate))+scale_color_manual(values=c("#FF0000", "#E69F00", "#56B4E9"))+ ggtitle("This is the title of my plot")
 
 # check out the following plotly command
-p1 = ggplot(data=data3)+geom_line(aes(x=time, y=n, colour=canditate))+scale_color_manual(values=c("#FF0000", "#E69F00", "#56B4E9"))+ ggtitle("This is the title of my plot")\
+p1 = ggplot(data=data3)+geom_line(aes(x=time, y=n, colour=canditate))+scale_color_manual(values=c("#FF0000", "#E69F00", "#56B4E9"))+ ggtitle("This is the title of my plot")
 
 ```
 install.packages(“plotly”)
@@ -56,87 +56,87 @@ demo("colors")
 # do an internet search for a full list of colour options available – particularly the names of colours and how to call them
 
 
-#.......................................................\
+#.......................................................
 GGplot2 and dplyr – A further example: Execute the following codes
 
-Part 1 – Basic Plots\
+Part 1 – Basic Plots
 # Install the following packages:
 # Installation install.packages('ggplot2') 
 # Loading library(ggplot2)
 # Load the data
 data(mtcars)\
-df <- mtcars[, c("mpg", "cyl", "wt")]\
+df <- mtcars[, c("mpg", "cyl", "wt")]
 # Convert cyl to a factor variable 
 df$cyl <- as.factor(df$cyl)\
 head(df)
 
 # Basic scatter plot
-ggplot(data = mtcars, aes(x = wt, y = mpg)) + geom_point()\
+ggplot(data = mtcars, aes(x = wt, y = mpg)) + geom_point()
 
 # Change the point size, and shape
-ggplot(mtcars, aes(x = wt, y = mpg)) + geom_point(size = 2, shape = 23)\
+ggplot(mtcars, aes(x = wt, y = mpg)) + geom_point(size = 2, shape = 23)
 
 # Examine the documentation for the qplot() function
 # Generate a basic scatter plot
-qplot(x = mpg, y = wt, data = df, geom = "point")\
+qplot(x = mpg, y = wt, data = df, geom = "point")
 # Scatter plot with smoothed line
-qplot(mpg, wt, data = df, geom = c("point", "smooth"))\
+qplot(mpg, wt, data = df, geom = c("point", "smooth"))
 # Scatter plot with different point types for the different cyl values 
-qplot(mpg, wt, data = df, colour = cyl, shape = cyl)\
+qplot(mpg, wt, data = df, colour = cyl, shape = cyl)
 
 
-Part2 boxplot\
+Part2 boxplot
 
 # set random number seed – this will ensure we all get the same random numbers
-set.seed(1234)\
+set.seed(1234)
 # generate random data frame
-wdata = data.frame( sex = factor(rep(c("F", "M"), each=200)), weight = c(rnorm(200, 55), rnorm(200, 58)))\
+wdata = data.frame( sex = factor(rep(c("F", "M"), each=200)), weight = c(rnorm(200, 55), rnorm(200, 58)))
 
 head(wdata)
 
 # Basic box plot from data frame
-qplot(sex, weight, data = wdata, geom= "boxplot", fill = sex)\
+qplot(sex, weight, data = wdata, geom= "boxplot", fill = sex)
 # Violin plot 
-qplot(sex, weight, data = wdata, geom = "violin")\
+qplot(sex, weight, data = wdata, geom = "violin")
 # Dot plot 
-qplot(sex, weight, data = wdata, geom = "dotplot", stackdir = "center", binaxis = "y", dotsize = 0.5)\
+qplot(sex, weight, data = wdata, geom = "dotplot", stackdir = "center", binaxis = "y", dotsize = 0.5)
 
-#.............Desnisty Graphs\
+#.............Desnisty Graphs
 # Use geometry function
-ggplot(wdata, aes(x = weight)) + geom_density() \
+ggplot(wdata, aes(x = weight)) + geom_density() 
 # OR use stat function
-ggplot(wdata, aes(x = weight)) + stat_density()\
+ggplot(wdata, aes(x = weight)) + stat_density()
 
 # Define a as the meta-plot of wdata
-a <- ggplot(wdata, aes(x = weight))\
+a <- ggplot(wdata, aes(x = weight))
 
 # Basic area plot
-a + geom_area(stat = "bin")\
+a + geom_area(stat = "bin")
 # change fill colors by sex
-a + geom_area(aes(fill = sex), stat ="bin", alpha=0.6) + theme_classic()\
+a + geom_area(aes(fill = sex), stat ="bin", alpha=0.6) + theme_classic()
 # Basic density plot
-a + geom_density()\
+a + geom_density()
 # change line colors by sex
-a + geom_density(aes(color = sex))\
+a + geom_density(aes(color = sex))
 
 
 # Change fill color by sex
 # Use semi-transparent fill: alpha = 0.4
-a + geom_density(aes(fill = sex), alpha=0.4)\
+a + geom_density(aes(fill = sex), alpha=0.4)
 # Add mean line and Change color manually
 #(you need to make 2 changes to this code before it will work)
-a + geom_density(aes(color = sex)) + geom_vline(data=mu,aes(xintercept=group.mean, color=sex), linetype="dashed") + scale_color_manual(values=c("#999999", "#E69F00"))\
+a + geom_density(aes(color = sex)) + geom_vline(data=mu,aes(xintercept=group.mean, color=sex), linetype="dashed") + scale_color_manual(values=c("#999999", "#E69F00"))
 
 
 # Basic frequency polygon plot
-a + geom_freqpoly()\
+a + geom_freqpoly()
 # change y axis to density value and change theme
-a + geom_freqpoly(aes(y = ..density..)) + theme_minimal()\
+a + geom_freqpoly(aes(y = ..density..)) + theme_minimal()
 # change color and linetype by sex
-a + geom_freqpoly(aes(color = sex, linetype = sex)) + theme_minimal()\
+a + geom_freqpoly(aes(color = sex, linetype = sex)) + theme_minimal()
 
 
 # Basic histogram
-a + geom_histogram()\
+a + geom_histogram()
 # change line colors by sex
-a + geom_histogram(aes(color = sex), fill = "white", position = "dodge")\
+a + geom_histogram(aes(color = sex), fill = "white", position = "dodge")
