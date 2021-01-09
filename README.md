@@ -14,11 +14,11 @@ data2=data.frame(time=x, a1=a, b1=b, c1=c)\
 View(data2)
 
 # plot 1
-ggplot(data=data2, aes(x=time, y=a1))+geom_line()\
+ggplot(data=data2, aes(x=time, y=a1))+geom_line()
 # adding a second line 
-ggplot(data=data2)+geom_line(aes(x=time, y=a1))+ geom_line(aes(x=time, y=b1))\
+ggplot(data=data2)+geom_line(aes(x=time, y=a1))+ geom_line(aes(x=time, y=b1))
 # graph with colours and adjusted y axis
-ggplot(data=data2)+geom_line(aes(x=time, y=a1), colour="red")+ geom_line(aes(x=time, y=b1), colour="blue")+ scale_y_continuous(name="something", limits=c(-2,10))\
+ggplot(data=data2)+geom_line(aes(x=time, y=a1), colour="red")+ geom_line(aes(x=time, y=b1), colour="blue")+ scale_y_continuous(name="something", limits=c(-2,10))
 # tidy data 
 #install.packages(“tidyverse”)
 library(tidyverse)
