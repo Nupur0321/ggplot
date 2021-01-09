@@ -124,7 +124,6 @@ a + geom_density(aes(color = sex))
 # Use semi-transparent fill: alpha = 0.4
 a + geom_density(aes(fill = sex), alpha=0.4)
 # Add mean line and Change color manually
-#(you need to make 2 changes to this code before it will work)
 a + geom_density(aes(color = sex)) + geom_vline(data=mu,aes(xintercept=group.mean, color=sex), linetype="dashed") + scale_color_manual(values=c("#999999", "#E69F00"))
 
 
